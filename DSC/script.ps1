@@ -17,7 +17,7 @@ if ($rdpPort -ne 3389) {
     netsh advfirewall firewall add rule name="Open Port $rdpPort" dir=in action=allow protocol=TCP localport=$rdpPort
 }
 
-#Importing all required functions
+#Install stuff
 . $scriptPath\VSCodeSetup-x64-1.32.3.exe /VERYSILENT /MERGETASKS=!runcode
 
 }
