@@ -16,12 +16,11 @@
             }
         },
         "rdpPort": {
-            "type": "string",
-            "defaultValue": 3389,
+            "type": "int",
             "minValue": 0,
             "maxValue": 65535,
             "metadata": {
-                "description": "TCP port for RDP connection."
+                "description": "TCP port for RDP connection. Default should be 3389. Acceptable value between 0 and 65535."
             }
         },
         "location": {
