@@ -15,13 +15,18 @@
                 "description": "Password for the Virtual Machine."
             }
         },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "defaultValue": "[concat('devws-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
+        "location": {
             "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        }
+              "description": "The location for the resources"
+            },
+            "type": "string",
+            "minLength": 1,
+            "allowedValues": [
+              "canadaeast",
+              "canadacentral"
+            ],
+            "defaultValue": "canadacentral"
+          }
     },
     "variables": {
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
@@ -33,14 +38,15 @@
         "vmName": "SimpleWinVM",
         "virtualNetworkName": "MyVNET",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-        "windowsOSVersion": "2016-Datacenter"
+        "windowsOSVersion": "2016-Datacenter",
+        "dnsLabelPrefix": "[concat('devws-', substring(uniqueString( resourceGroup().id ), 0, 5))]"
     },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2018-11-01",
             "name": "[variables('storageAccountName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Standard_LRS"
             },
@@ -51,11 +57,11 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2018-11-01",
             "name": "[variables('publicIPAddressName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
-                    "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+                    "domainNameLabel": "[variables('dnsLabelPrefix')]"
                 }
             }
         },
@@ -63,7 +69,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-11-01",
             "name": "[variables('virtualNetworkName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -84,7 +90,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-11-01",
             "name": "[variables('nicName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -110,7 +116,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-10-01",
             "name": "[variables('vmName')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
                 "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
