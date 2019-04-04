@@ -4,4 +4,4 @@
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-This template allows you to deploy a simple Windows VM using the latest patched version. This will deploy a A2 size VM in the resource group location and return the fully qualified domain name of the VM. The VM will have all the necessary toold installed to start deploying GC PBMM Azure templates and deployments.
+This template allows you to deploy a temporary Azure Development Windows VM using the latest patched Windows version. This will deploy a B2ms size VM in the resource group location and return the fully qualified domain name of the VM. The VM will have all the necessary tools installed to start deploying GC PBMM Azure templates and deployments.
