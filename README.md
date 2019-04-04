@@ -5,3 +5,5 @@
 </a>
 
 This template allows you to deploy a Demo Azure Development Windows VM using the latest patched Windows version. This will deploy a B2ms size VM in the resource group location and return the fully qualified domain name of the VM. The VM will have all the necessary tools installed to start deploying Demo GC PBMM Azure templates and deployments.
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
