@@ -183,7 +183,8 @@
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "fileUris": [
-                                "[concat(uri(variables('_artifactsLocation'), 'DSC/script.ps1'))]"
+                                "[concat(uri(variables('_artifactsLocation'), 'DSC/script.ps1'))]",
+                                "[concat(uri(variables('_artifactsLocation'), 'Files/VSCodeSetup-x64-1.32.3.exe'))]"
                             ],
                             "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'script.ps1')]"
                         }
