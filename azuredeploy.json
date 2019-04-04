@@ -17,7 +17,7 @@
         },
         "rdpPort": {
             "type": "int",
-            "defaultValue": "3389",
+            "defaultValue": 3389,
             "minValue": 0,
             "maxValue": 65535,
             "metadata": {
