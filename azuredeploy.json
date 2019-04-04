@@ -183,8 +183,7 @@
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "fileUris": [
-                                "[concat(uri(variables('_artifactsLocation'), variables('scriptName')))]",
-                                "https://go.microsoft.com/fwlink/?Linkid=852157"
+                                "[concat(uri(variables('_artifactsLocation'), 'DSC/script.ps1'))]"
                             ],
                             "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'script.ps1')]"
                         }
