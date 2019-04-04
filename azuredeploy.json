@@ -15,6 +15,15 @@
                 "description": "Password for the Virtual Machine."
             }
         },
+        "rdpPort": {
+            "type": "int",
+            "defaultValue": "3389",
+            "minValue": 0,
+            "maxValue": 65535,
+            "metadata": {
+                "description": "TCP port for RDP connection."
+            }
+        },
         "location": {
             "metadata": {
                 "description": "The location for the resources"
@@ -186,7 +195,7 @@
                                 "[concat(uri(variables('_artifactsLocation'), 'DSC/script.ps1'))]",
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/VSCodeSetup-x64-1.32.3.exe'))]"
                             ],
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'script.ps1')]"
+                            "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'script.ps1', ' -rdpPort ', parameters('rdpPort'))]"
                         }
                     }
                 }
