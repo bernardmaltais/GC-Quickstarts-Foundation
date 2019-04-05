@@ -19,5 +19,6 @@ if ($rdpPort -ne 3389) {
 
 #Install stuff
 . $scriptPath\VSCodeSetup-x64-1.32.3.exe /VERYSILENT /MERGETASKS=!runcode
-
+. $scriptPath\ChromeStandaloneSetup64.exe /silent /install
+. $scriptPath\Git-2.21.0-64-bit.exe /silent
 }
