@@ -1,4 +1,4 @@
-# Demo VM to get started with Demo GC PBMM deployments
+# Development VM to launch Demo GC PBMM deployments
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fbernardmaltais%2FGC-Quickstarts-Foundation%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
