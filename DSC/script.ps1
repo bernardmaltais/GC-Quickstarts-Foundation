@@ -20,22 +20,22 @@ if ($rdpPort -ne 3389) {
 #Install stuff
 
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing Visual Studio - $temptime" | outfile $deploylogfile
+"Installing Visual Studio - $temptime" | out-file $deploylogfile
 . $scriptPath\VSCodeSetup-x64-1.32.3.exe /VERYSILENT /MERGETASKS=!runcode
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"After Installing Visual Studio - $temptime" | outfile $deploylogfile -Append
+"After Installing Visual Studio - $temptime" | out-file $deploylogfile -Append
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing Chrome - $temptime" | outfile $deploylogfile -Append
+"Installing Chrome - $temptime" | out-file $deploylogfile -Append
 . $scriptPath\ChromeStandaloneSetup64.exe /silent /install
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"After Installing Chrome - $temptime" | outfile $deploylogfile -Append
+"After Installing Chrome - $temptime" | out-file $deploylogfile -Append
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing Git - $temptime" | outfile $deploylogfile -Append
+"Installing Git - $temptime" | out-file $deploylogfile -Append
 . $scriptPath\Git-2.21.0-64-bit.exe /silent
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"After Installing Git - $temptime" | outfile $deploylogfile -Append
+"After Installing Git - $temptime" | out-file $deploylogfile -Append
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing AZcopy - $temptime" | outfile $deploylogfile -Append
+"Installing AZcopy - $temptime" | out-file $deploylogfile -Append
 . msiexec.exe /i $scriptPath\MicrosoftAzureStorageAzCopy_netcore_x64.msi /q /log $scriptPath\autoazcopyinstall.log
 #add the AZCOPY path to the path variable
 $AZCOPYpath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy"
@@ -44,12 +44,12 @@ $NEWPath =   "$actualPath;$AZCOPYpath"
 $NEWPath | Out-File $scriptPath\azcopySystemPath.log
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH -Value $NEWPath
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"After Installing AZcopy - $temptime" | outfile $deploylogfile -Append
+"After Installing AZcopy - $temptime" | out-file $deploylogfile -Append
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing AZ Powershell Module - $temptime" | outfile $deploylogfile -Append
+"Installing AZ Powershell Module - $temptime" | out-file $deploylogfile -Append
 #install Powershell AZ module
 Install-PackageProvider -name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module -Name Az -AllowClobber -force 
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"After Installing AZ Powershell Module - $temptime" | outfile $deploylogfile -Append
+"After Installing AZ Powershell Module - $temptime" | out-file $deploylogfile -Append
 }
