@@ -24,6 +24,8 @@ if ($rdpPort -ne 3389) {
 . msiexec.exe /i $scriptPath\MicrosoftAzureStorageAzCopy_netcore_x64.msi /q /log $scriptPath\autoazcopyinstall.log
 #add the AZCOPY path to the path variable
 $AZCOPYpath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy"
-$NEWPath = ((Get-ItemProperty -Path ‘Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment’ -Name PATH).path) + ";$AZCOPYpath"
-Set-ItemProperty -Path ‘Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment’ -Name PATH -Value $NEWPath
+$actualPath = ((Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path)
+$NEWPath =   "$actualPath;$AZCOPYpath"
+$NEWPath | Out-File $scriptPath\azcopySystemPath.log
+Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH -Value $NEWPath
 }
