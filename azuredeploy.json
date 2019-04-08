@@ -194,6 +194,7 @@
                             "fileUris": [
                                 "[concat(uri(variables('_artifactsLocation'), 'DSC/script.ps1'))]",
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/ChromeStandaloneSetup64.exe'))]",
+                                "[concat(uri(variables('_artifactsLocation'), 'Files/MicrosoftAzureStorageAzCopy_netcore_x64.msi'))]",
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/Git-2.21.0-64-bit.exe'))]"
                             ],
                             
