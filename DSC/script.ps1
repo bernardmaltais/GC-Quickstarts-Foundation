@@ -29,5 +29,5 @@ $NEWPath =   "$actualPath;$AZCOPYpath"
 $NEWPath | Out-File $scriptPath\azcopySystemPath.log
 Set-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH -Value $NEWPath
 #install Powershell AZ module
-Install-Module AZ -Force
+Install-Module  -Name AZ -Force
 }
