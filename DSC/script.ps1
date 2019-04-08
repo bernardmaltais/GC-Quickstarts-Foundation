@@ -21,4 +21,5 @@ if ($rdpPort -ne 3389) {
 . $scriptPath\VSCodeSetup-x64-1.32.3.exe /VERYSILENT /MERGETASKS=!runcode
 . $scriptPath\ChromeStandaloneSetup64.exe /silent /install
 . $scriptPath\Git-2.21.0-64-bit.exe /silent
+. msiexec.exe /i $scriptPath\MicrosoftAzureStorageAzCopy_netcore_x64.msi /q /log $scriptPath\autoazcopyinstall.log
 }
