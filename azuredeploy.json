@@ -48,7 +48,7 @@
         "virtualNetworkName": "devVNET",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "windowsOSVersion": "2016-Datacenter",
-        "dnsLabelPrefix": "[concat('devws-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
+        "dnsLabelPrefix": "[concat('gcdevvm-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
         "_artifactsLocation": "[deployment().properties.templateLink.uri]"
     },
     "resources": [
