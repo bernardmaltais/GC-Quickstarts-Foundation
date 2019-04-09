@@ -195,8 +195,7 @@
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/VSCodeSetup-x64-1.32.3.exe'))]",
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/ChromeStandaloneSetup64.exe'))]",
                                 "[concat(uri(variables('_artifactsLocation'), 'Files/MicrosoftAzureStorageAzCopy_netcore_x64.msi'))]",
-                                "[concat(uri(variables('_artifactsLocation'), 'Files/Git-2.21.0-64-bit.exe'))]",
-                                "https://github.com/PowerShell/PowerShell/releases/download/v6.2.0/PowerShell-6.2.0-win-x64.msi"
+                                "[concat(uri(variables('_artifactsLocation'), 'Files/Git-2.21.0-64-bit.exe'))]"
                             ],
                             
                             "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'script.ps1', ' -rdpPort ', parameters('rdpPort'))]"

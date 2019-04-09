@@ -41,9 +41,6 @@ $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "Installing Git - $temptime" | out-file $deploylogfile -Append
 . $scriptPath\Git-2.21.0-64-bit.exe /silent
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
-"Installing Powershell 6 - $temptime" | out-file $deploylogfile -Append
-msiexec.exe /package $scriptPath\PowerShell-6.2.0-win-x64.msi /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1
-$temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "After Installing Git - $temptime" | out-file $deploylogfile -Append
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "Installing AZcopy - $temptime" | out-file $deploylogfile -Append
