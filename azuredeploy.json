@@ -38,19 +38,18 @@
         }
     },
     "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-        "nicName": "myVMNic",
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sadevvm')]",
+        "nicName": "gcDevVM-nic1",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
-        "publicIPAddressName": "myPublicIP",
-        "vmName": "SimpleWinVM",
-        "virtualNetworkName": "MyVNET",
+        "publicIPAddressName": "gcDevVM-pubip",
+        "vmName": "gcDevVM",
+        "virtualNetworkName": "devVNET",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "windowsOSVersion": "2016-Datacenter",
         "dnsLabelPrefix": "[concat('devws-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
-        "_artifactsLocation": "[deployment().properties.templateLink.uri]",
-        "scriptName": "DSC/script.ps1"
+        "_artifactsLocation": "[deployment().properties.templateLink.uri]"
     },
     "resources": [
         {
@@ -153,7 +152,7 @@
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": 1023,
+                            "diskSizeGB": 256,
                             "lun": 0,
                             "createOption": "Empty"
                         }
