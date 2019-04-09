@@ -52,4 +52,6 @@ Install-PackageProvider -name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module -Name Az -AllowClobber -force 
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "After Installing AZ Powershell Module - $temptime" | out-file $deploylogfile -Append
+#setting the time zone to eastern
+& "$env:windir\system32\tzutil.exe" /s "Eastern Standard Time"
 }
