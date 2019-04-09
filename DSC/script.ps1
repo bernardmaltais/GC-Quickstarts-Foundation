@@ -2,13 +2,13 @@ param(
     [Parameter(Mandatory=$false)][string]$rdpPort = "3389"
 )
 
-function writeToLog {
+<#function writeToLog {
 param ([string]$message)
 $scriptPath = "."
 $deploylogfile = "$scriptPath\deploymentlog.log"
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "whhooo Went to test function $message $temptime" | out-file $deploylogfile -Append
-}
+}#>
 
 Process {
  $scriptPath = "."
@@ -62,5 +62,5 @@ $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "After Installing AZ Powershell Module - $temptime" | out-file $deploylogfile -Append
 #setting the time zone to eastern
 & "$env:windir\system32\tzutil.exe" /s "Eastern Standard Time"
-writeToLog -message "StefaneMessage"
+#writeToLog -message "StefaneMessage"
 }
