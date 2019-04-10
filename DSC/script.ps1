@@ -52,7 +52,8 @@ $UserKey = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8
 Set-ItemProperty -Path $AdminKey -Name "IsInstalled" -Value 0 
 Set-ItemProperty -Path $UserKey -Name "IsInstalled" -Value 0 
 Stop-Process -Name Explorer 
-#copy batch file to install VSC extention on the public desktop
+#copy batch file to install VSC extention on the public desktop 
+<#
 Copy-Item -Path $scriptpath\InstallVSCExtensions.bat -Destination C:\Users\Public\Desktop\InstallVSCExtensions.bat
 #adding a VSC shortcut on the public desktop
 $WshShell = New-Object -comObject WScript.Shell
@@ -69,5 +70,6 @@ $Shortcut.Save()
 Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask -Verbose 
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "Ending deployment script - $temptime" | out-file $deploylogfile -Append
+#>
 }
 
