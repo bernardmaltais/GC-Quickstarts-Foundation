@@ -6,7 +6,7 @@
 
 This template allows you to deploy a 1st Azure Development Windows VM using the latest patched Windows Server 2016 version. This will deploy a D2s_v3 size VM in the resource group location and return the fully qualified domain name of the VM. The VM will have all the necessary tools installed to start deploying GC Cloud Accelerator Azure templates and deployments.
 
-A video tutorial on how to build and use the VM to deploy your 1st Azure infrastructure can be found here: 
+A video tutorial on how to deploy the VM on Azure and use the VM to build your 1st Azure infrastructure can be found here: 
 
 https://www.youtube.com/watch?v=Mm_bBRf73Lo
 
