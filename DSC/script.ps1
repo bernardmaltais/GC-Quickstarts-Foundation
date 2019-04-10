@@ -54,7 +54,7 @@ Set-ItemProperty -Path $UserKey -Name "IsInstalled" -Value 0
 Stop-Process -Name Explorer 
 #copy batch file to install VSC extention on the public desktop 
 
-#Copy-Item -Path $scriptpath\InstallVSCExtensions.bat -Destination C:\Users\Public\Desktop\InstallVSCExtensions.bat
+Copy-Item -Path "$scriptpath\InstallVSCExtensions.bat" -Destination "C:\Users\Public\Desktop\InstallVSCExtensions.bat"
 #adding a VSC shortcut on the public desktop
 <#$WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("c:\Users\Public\Desktop\Visual Studio Code.lnk")
