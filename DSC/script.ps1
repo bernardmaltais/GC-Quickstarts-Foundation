@@ -56,12 +56,12 @@ Stop-Process -Name Explorer
 
 Copy-Item -Path $scriptpath\InstallVSCExtensions.bat -Destination C:\Users\Public\Desktop\InstallVSCExtensions.bat
 #adding a VSC shortcut on the public desktop
-$WshShell = New-Object -comObject WScript.Shell
+<#$WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("c:\Users\Public\Desktop\Visual Studio Code.lnk")
 $Shortcut.TargetPath = "C:\Program Files\Microsoft VS Code\Code.exe"
 $Shortcut.Save()
 #adding Azure Deployment Library shortcut on the desktop
-<#
+
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("c:\Users\Public\Desktop\Azure Deployment Librairies.lnk")
 $Shortcut.TargetPath = "https://dev.azure.com/GC-Quickstarts/_git/Azure-Deployments"
