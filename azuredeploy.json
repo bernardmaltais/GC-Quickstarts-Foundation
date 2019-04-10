@@ -38,19 +38,18 @@
         }
     },
     "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-        "nicName": "myVMNic",
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sadevvm')]",
+        "nicName": "gcDevVM-nic1",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
-        "publicIPAddressName": "myPublicIP",
-        "vmName": "SimpleWinVM",
-        "virtualNetworkName": "MyVNET",
+        "publicIPAddressName": "gcDevVM-pubip",
+        "vmName": "gcDevVM",
+        "virtualNetworkName": "devVNET",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "windowsOSVersion": "2016-Datacenter",
-        "dnsLabelPrefix": "[concat('devws-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
-        "_artifactsLocation": "[deployment().properties.templateLink.uri]",
-        "scriptName": "DSC/script.ps1"
+        "dnsLabelPrefix": "[concat('gcdevvm-', substring(uniqueString( resourceGroup().id ), 0, 5))]",
+        "_artifactsLocation": "[deployment().properties.templateLink.uri]"
     },
     "resources": [
         {
@@ -134,7 +133,7 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_B2ms"
+                    "vmSize": "Standard_D2s_v3"
                 },
                 "osProfile": {
                     "computerName": "[variables('vmName')]",
@@ -149,11 +148,14 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "createOption": "FromImage"
+                        "createOption": "FromImage",
+                        "managedDisk": {
+                            "storageAccountType": "StandardSSD_LRS"
+                        }
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": 1023,
+                            "diskSizeGB": 256,
                             "lun": 0,
                             "createOption": "Empty"
                         }
