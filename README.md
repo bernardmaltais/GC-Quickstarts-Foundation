@@ -45,6 +45,8 @@ Deploy the core infrastructure with:
 .\masterdeploy.ps1
 ```
 
+If all goes well this will take about 12 minutes.
+
 ### 2. Demo Web Server
 
 When the infrastructure is deployed it is now time to add the desired subsequent modules. Do you want to 1st test a sample website in your demo infrastructure? Go in the demov3\msfirewall\demo-docker-web and deploy it with:
@@ -54,7 +56,7 @@ cd ..\demo-docker-web
 .\masterdeploy.ps1
 ```
 
-Once deployed you will obtain the URL that you can use to connect and view the demo page. It should look like:
+This will take about 5 minutes. Once deployed you will obtain the URL that you can use to connect and view the demo page. It should look like:
 
 ```text
 There was no deployment errors detected. All look good.
@@ -76,7 +78,7 @@ cd ..\demo-temporary-jumpbox
 .\masterdeploy.ps1
 ```
 
-Once deployed you will obtain the IP and TCP port you can use to connect to the temporary jumpbox. It should look like:
+This will take about 7 minutes. Once deployed you will obtain the IP and TCP port you can use to connect to the temporary jumpbox. It should look like:
 
 ```text
 There was no deployment errors detected. All look good.
@@ -96,3 +98,22 @@ Password: Canada123!
 ```
 
 You will need to use this jumpbox at a future stage to configure the "final" Remode Desktop Service" farm that will be deployed later.
+
+### 4. Management Active Directory Domain Servers
+
+Time to get down to business. Let's deploy our demo management Active Directory servers. DOn't worry. it is as easy as what you have done so far. Go in the demov3\msfirewall\mgmt-ADDS and deploy it with:
+
+```powershell
+cd ..\mgmt-ADDS
+.\masterdeploy.ps1
+```
+
+This will take about 30 minutes is the wind is blowing on your back... longer if you hit a bad Azure day ;-).
+
+Once deployed you will obtain the following message:
+
+```text
+There was no deployment errors detected. All look good.
+
+Connect to the temporary jumpbox at 40.82.184.3:33890
+```
