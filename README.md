@@ -165,20 +165,35 @@ Once connected to it use the Server Manager applications that will open on the d
 This is not working yet. Need to figure out issue with FQDN used to authenticate.
 
 Click Remote Desktop Services
+
 Click Servers
+
 Right-click on gateway name in Servers section
+
 Select RD Gateway Managet option
+
 Right-click on gateway.mgmt.demo.gc.ca.local (Remote)
+
 Select Properties
+
 Click on SSL Certificates
+
 Click Create a self-signed certificate
+
 Click Create and Import Certificate...
+
 Click OK
+
 Click OK
+
 Click OK
+
 Copy certificate from Documents and import it on the PC that will need to connect to the Demo RDS service. For example your GC Cloud Accelerator Dev VM.
+
 Install the certificate in Local Machine/Trusted Root Certification Authorities
+
 Connect to https://<dns name of msfirewall pubip>/rdweb
+    
 Accept warning
     
 Authenticate using the default demo credentials:
@@ -189,7 +204,9 @@ Password: Canada123!
 ```
 
 Click the Desktop Collection icon
+
 Click on the downloaded file
+
 Click Connect
 
 Authenticate using the default demo credentials:
