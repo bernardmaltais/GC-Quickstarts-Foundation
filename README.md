@@ -28,6 +28,7 @@ On GC Cloud Accelerator Development VM go in the demov3\msfirewall\demo-core-msf
 Login to your Azure subscription with:
 
 ```powershell
+cd <path to demov3\msfirewall\demo-core-msfw-nsg>
 login-azurermaccount
 ```
 
@@ -49,13 +50,17 @@ Deploy the core infrastructure with:
 When the infrastructure is deployed it is now time to add the desired subsequent modules. Do you want to 1st test a sample website in your demo infrastructure? Go in the demov3\msfirewall\demo-docker-web and deploy it with:
 
 ```powershell
+cd ..\demo-docker-web
 .\masterdeploy.ps1
 ```
 
 Once deployed you will obtain the URL that you can use to connect and view the demo page. It should look like:
 
 ```text
-some result to be added here
+There was no deployment errors detected. All look good.
+
+Connect to the demo website using a web browser at http://40.82.184.3
+Connect to the docker server using SSH to 40.82.184.3
 ```
 
 ### 3. 1st Temporary Jumpbox
@@ -63,6 +68,7 @@ some result to be added here
 Now that you know the base infrastructure is working as expected by validating access to the demo web server you can now add the temporary jumpbox modules. Go in the demov3\msfirewall\demo-temporary-jumpbox and deploy it with:
 
 ```powershell
+cd ..\demo-temporary-jumpbox
 .\masterdeploy.ps1
 ```
 
