@@ -13,7 +13,7 @@ A video tutorial on how to deploy the VM on Azure and use the VM to build your 1
 [![HOWTO deploy the GC Accelerator VM and use it](resources/youtube-screen.png)](https://www.youtube.com/watch?v=Mm_bBRf73Lo "HOWTO deploy the GC Accelerator VM and use it")
 
 
-## Demo Infrastructure deployment order
+## Demo Infrastructure deployment
 
 When you have cloned the deployment library (see video at 19:30 https://youtu.be/Mm_bBRf73Lo?t=1170) from
 
@@ -63,7 +63,11 @@ Connect to the demo website using a web browser at http://40.82.184.3
 Connect to the docker server using SSH to 40.82.184.3
 ```
 
-### 3. 1st Temporary Jumpbox
+Connecting to the URL should give you:
+
+[![Docker Web Server](resources/website.png)]
+
+### 3. Temporary Jumpbox
 
 Now that you know the base infrastructure is working as expected by validating access to the demo web server you can now add the temporary jumpbox modules. Go in the demov3\msfirewall\demo-temporary-jumpbox and deploy it with:
 
