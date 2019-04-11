@@ -65,7 +65,7 @@ Connect to the docker server using SSH to 40.82.184.3
 
 Connecting to the URL should give you:
 
-[![Docker Web Server](resources/website.png)]
+![Docker Web Server](resources/website.png)
 
 ### 3. Temporary Jumpbox
 
@@ -86,6 +86,6 @@ Connect to the temporary jumpbox at 40.82.184.3:33890
 
 Simple connect to it using an RDP client:
 
-[![RDP to Jumpbox](resources/rdpjb.png)]
+![RDP to Jumpbox](resources/rdpjb.png)
 
 You will need to use this jumpbox at a future stage to configure the "final" Remode Desktop Service" farm that will be deployed later.
