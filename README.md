@@ -192,7 +192,7 @@ Copy certificate from Documents and import it on the PC that will need to connec
 
 Install the certificate in Local Machine/Trusted Root Certification Authorities
 
-Connect to https://<dns name of msfirewall pubip>/rdweb
+Connect to https://\<dns name of msfirewall pubip\>/rdweb
     
 Accept warning
     
