@@ -84,8 +84,15 @@ There was no deployment errors detected. All look good.
 Connect to the temporary jumpbox at 40.82.184.3:33890
 ```
 
-Simple connect to it using an RDP client:
+Simply connect to it using an RDP client:
 
 ![RDP to Jumpbox](resources/rdpjb.png)
+
+and authenticate using the default demo credentials:
+
+```text
+Username: azureadmin
+Password: Canada123!
+```
 
 You will need to use this jumpbox at a future stage to configure the "final" Remode Desktop Service" farm that will be deployed later.
