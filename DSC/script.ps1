@@ -56,7 +56,7 @@ Stop-Process -Name Explorer
 
 #Copy-Item -Path "$scriptpath\InstallVSCExtensions.bat" -Destination "C:\Users\Public\Desktop\InstallVSCExtensions.bat"
 #adding a VSC shortcut on the public desktop
-<#$WshShell = New-Object -comObject WScript.Shell
+$WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("c:\Users\Public\Desktop\Visual Studio Code.lnk")
 $Shortcut.TargetPath = "C:\Program Files\Microsoft VS Code\Code.exe"
 $Shortcut.Save()
@@ -71,6 +71,5 @@ $Shortcut.Save()
 Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask -Verbose 
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "Ending deployment script - $temptime" | out-file $deploylogfile -Append
-#>
 }
 
