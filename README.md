@@ -27,49 +27,49 @@ On GC Cloud Accelerator Development VM go in the demov3\msfirewall\demo-core-msf
 
 Login to your Azure subscription with:
 
-`
+```powershell
 login-azurermaccount
-`
+```
 
 Select the desired subscription (if you have more than one) with:
 
-`
+```powershell
 get-azurermsubscription
 select-azurermsubscription <name>
-`
+```
 
 Deploy the core infrastructure with:
 
-`
+```powershell
 .\masterdeploy.ps1
-`
+```
 
 ### 2. Demo Web Server
 
 When the infrastructure is deployed it is now time to add the desired subsequent modules. Do you want to 1st test a sample website in your demo infrastructure? Go in the demov3\msfirewall\demo-docker-web and deploy it with:
 
-`
+```powershell
 .\masterdeploy.ps1
-`
+```
 
 Once deployed you will obtain the URL that you can use to connect and view the demo page. It should look like:
 
-`
+```text
 some result to be added here
-`
+```
 
 ### 3. 1st Temporary Jumpbox
 
 Now that you know the base infrastructure is working as expected by validating access to the demo web server you can now add the temporary jumpbox modules. Go in the demov3\msfirewall\demo-temporary-jumpbox and deploy it with:
 
-`
+```powershell
 .\masterdeploy.ps1
-`
+```
 
 Once deployed you will obtain the IP and TCP port you can use to connect to the temporary jumpbox. It should look like:
 
-`
+```text
 some result to be added here
-`
+```
 
 Simple connect to it using an RDP client. You will need to use this jumpbox at a future stage to configure the "final" Remode Desktop Service" farm that will be deployed later.
