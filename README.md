@@ -15,7 +15,7 @@ A video tutorial on how to deploy the VM on Azure and use the VM to build your 1
 
 ## Demo Infrastructure deployment order
 
-When you have cloned the deployment library from
+When you have cloned the deployment library (see video at 19:30 https://youtu.be/Mm_bBRf73Lo?t=1170) from
 
 https://dev.azure.com/GC-Quickstarts/Azure-Deployments
 
@@ -40,4 +40,16 @@ Deploy the core infrastructure with:
 
 `
 .\masterdeploy.ps1
+`
+
+When the infrastructure is deployed it is now time to add the desired subsequent modules. Do you want to 1st test a sample website in your demo infrastructure? Go in the demov3\msfirewall\demo-docker-web and deploy it with:
+
+`
+.\masterdeploy.ps1
+`
+
+Once deployed you will obtain the URL that you can use to connect and view the demo page. It should look like:
+
+`
+some result to be added here
 `
