@@ -6,14 +6,14 @@
 
 This template allows you to deploy a 1st Azure Development Windows VM using the latest patched Windows Server 2016 version. This will deploy a D2s_v3 size VM in the resource group location and return the fully qualified domain name of the VM. The VM will have all the necessary tools installed to start deploying GC Cloud Accelerator Azure templates and deployments.
 
-## HOWTO Video tutorial
+## HOWTO Video Tutorial
 
 A video tutorial on how to deploy the VM on Azure and use the VM to build your 1st Azure infrastructure can be found here: 
 
 [![HOWTO deploy the GC Accelerator VM and use it](resources/youtube-screen.png)](https://www.youtube.com/watch?v=Mm_bBRf73Lo "HOWTO deploy the GC Accelerator VM and use it")
 
 
-## Demo Infrastructure deployment
+## Demo Infrastructure Deployment
 
 When you have cloned the deployment library (see video at 19:30 https://youtu.be/Mm_bBRf73Lo?t=1170) from
 
@@ -21,7 +21,7 @@ https://dev.azure.com/GC-Quickstarts/Azure-Deployments
 
 as shown in the youtube HOWTO above you are ready to deploy your 1st environment. To do this it is suggested you 1st start with the demov3\msfirewall example. The reason being that no vendor specific firewall license is required to properly deploy this version of the demo infrastructure with success.
 
-### 1. Core infrastructure
+### 1. Core Infrastructure
 
 On GC Cloud Accelerator Development VM go in the demov3\msfirewall\demo-core-msfw-nsg folder.
 
@@ -105,6 +105,25 @@ Time to get down to business. Let's deploy our demo management Active Directory 
 
 ```powershell
 cd ..\mgmt-ADDS
+.\masterdeploy.ps1
+```
+
+This will take about 30 minutes is the wind is blowing on your back... longer if you hit a bad Azure day ;-).
+
+Once deployed you will obtain the following message:
+
+```text
+There was no deployment errors detected. All look good.
+
+Connect to the temporary jumpbox at 40.82.184.3:33890
+```
+
+### 4. Management Remote Desktop Services
+
+Let's deploy our demo RDS serversthat will allow easy user access over https to the servers in the infrastructure. This is also a one script deploy. Go in the demov3\msfirewall\mgmt-RDS and deploy it with:
+
+```powershell
+cd ..\mgmt-RDS
 .\masterdeploy.ps1
 ```
 
