@@ -21,6 +21,8 @@ https://dev.azure.com/GC-Quickstarts/Azure-Deployments
 
 as shown in the youtube HOWTO above you are ready to deploy your 1st environment. To do this it is suggested you 1st start with the demov3\msfirewall example. The reason being that no vendor specific firewall license is required to properly deploy this version of the demo infrastructure with success.
 
+### 1. Core infrastructure
+
 On GC Cloud Accelerator Development VM go in the demov3\msfirewall\demo-core-msfw-nsg folder.
 
 Login to your Azure subscription with:
@@ -42,6 +44,8 @@ Deploy the core infrastructure with:
 .\masterdeploy.ps1
 `
 
+### 2. Demo Web Server
+
 When the infrastructure is deployed it is now time to add the desired subsequent modules. Do you want to 1st test a sample website in your demo infrastructure? Go in the demov3\msfirewall\demo-docker-web and deploy it with:
 
 `
@@ -53,3 +57,19 @@ Once deployed you will obtain the URL that you can use to connect and view the d
 `
 some result to be added here
 `
+
+### 3. 1st Temporary Jumpbox
+
+Now that you know the base infrastructure is working as expected by validating access to the demo web server you can now add the temporary jumpbox modules. Go in the demov3\msfirewall\demo-temporary-jumpbox and deploy it with:
+
+`
+.\masterdeploy.ps1
+`
+
+Once deployed you will obtain the IP and TCP port you can use to connect to the temporary jumpbox. It should look like:
+
+`
+some result to be added here
+`
+
+Simple connect to it using an RDP client. You will need to use this jumpbox at a future stage to configure the "final" Remode Desktop Service" farm that will be deployed later.
