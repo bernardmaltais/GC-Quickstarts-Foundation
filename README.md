@@ -12,15 +12,17 @@ A video tutorial on how to deploy the VM on Azure and use the VM to build your 1
 
 [![HOWTO deploy the GC Accelerator VM and use it](resources/youtube-screen.png)](https://www.youtube.com/watch?v=Mm_bBRf73Lo "HOWTO deploy the GC Accelerator VM and use it")
 
-The URL for the GC Cloud Accelerator Azure deployments library is:
-
-https://dev.azure.com/GC-Quickstarts/Azure-Deployments (need to be updated to future github link)
 
 ## Demo Infrastructure deployment order
 
-When you have cloned the deployment library you are ready to deploy your 1st environment. To do this it is suggested you 1st start with the demov3\msfirewall example. The reason being that no vendor specific firewall license is required to properly deploy this version of the demo infrastructure with success.
+When you have cloned the deployment library from
+
+https://dev.azure.com/GC-Quickstarts/Azure-Deployments
+
+as shown in the youtube HOWTO above you are ready to deploy your 1st environment. To do this it is suggested you 1st start with the demov3\msfirewall example. The reason being that no vendor specific firewall license is required to properly deploy this version of the demo infrastructure with success.
 
 On GC Cloud Accelerator Development VM go in the demov3\msfirewall\demo-core-msfw-nsg folder.
+
 Login to your Azure subscription with:
 
 `
