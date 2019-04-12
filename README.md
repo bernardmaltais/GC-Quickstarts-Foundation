@@ -108,31 +108,113 @@ cd ..\mgmt-ADDS
 .\masterdeploy.ps1
 ```
 
-This will take about 30 minutes is the wind is blowing on your back... longer if you hit a bad Azure day ;-).
+This will take about 50 minutes is the wind is blowing on your back... longer if you hit a bad Azure day ;-).
 
 Once deployed you will obtain the following message:
 
 ```text
 There was no deployment errors detected. All look good.
-
-Connect to the temporary jumpbox at 40.82.184.3:33890
 ```
 
-### 4. Management Remote Desktop Services
+At this point you can connect to the ADDS servers by starting an RDP session from the Jumpbox deployed at step 3. The IP address of the demo ADDS servers are:
 
-Let's deploy our demo RDS serversthat will allow easy user access over https to the servers in the infrastructure. This is also a one script deploy. Go in the demov3\msfirewall\mgmt-RDS and deploy it with:
+```text
+DemoMGMTDC01: 10.25.8.20
+DemoMGMTDC02: 10.25.8.21
+```
+
+Authenticate using the default demo credentials:
+
+```text
+Username: mgmt\azureadmin
+Password: Canada123!
+```
+
+### 5. Management Remote Desktop Services
+
+Let's deploy our demo RDS servers that will allow easy user access over https to the servers in the infrastructure. This is also a one script deploy. Go in the demov3\msfirewall\mgmt-RDS and deploy it with:
 
 ```powershell
 cd ..\mgmt-RDS
 .\masterdeploy.ps1
 ```
 
-This will take about 30 minutes is the wind is blowing on your back... longer if you hit a bad Azure day ;-).
+This will take about 30 minutes hopefully.
 
 Once deployed you will obtain the following message:
 
 ```text
 There was no deployment errors detected. All look good.
-
-Connect to the temporary jumpbox at 40.82.184.3:33890
 ```
+
+At this point you need to connect to the gateway RDS servers by starting an RDP session from the Jumpbox deployed at step 3. The IP address of the demo gateway RDS servers is:
+
+```text
+DEMORDSGW: 10.25.4.4
+```
+
+Authenticate using the default demo credentials:
+
+```text
+Username: mgmt\azureadmin
+Password: Canada123!
+```
+
+Once connected to it use the Server Manager applications that will open on the desktop to manage the gateway server. Here is a short HOWTO Video that will explain what to do to configure a temporary self-signed certificate on the server:
+
+This is not working yet. Need to figure out issue with FQDN used to authenticate.
+
+Click Remote Desktop Services
+
+Click Servers
+
+Right-click on gateway name in Servers section
+
+Select RD Gateway Managet option
+
+Right-click on gateway.mgmt.demo.gc.ca.local (Remote)
+
+Select Properties
+
+Click on SSL Certificates
+
+Click Create a self-signed certificate
+
+Click Create and Import Certificate...
+
+Click OK
+
+Click OK
+
+Click OK
+
+Copy certificate from Documents and import it on the PC that will need to connect to the Demo RDS service. For example your GC Cloud Accelerator Dev VM.
+
+Install the certificate in Local Machine/Trusted Root Certification Authorities
+
+Connect to https://<dns name of msfirewall pubip>/rdweb
+    
+Accept warning
+    
+Authenticate using the default demo credentials:
+
+```text
+Username: mgmt\azureadmin
+Password: Canada123!
+```
+
+Click the Desktop Collection icon
+
+Click on the downloaded file
+
+Click Connect
+
+Authenticate using the default demo credentials:
+
+```text
+Username: mgmt\azureadmin
+Password: Canada123!
+```
+
+
+-- Add video here --
