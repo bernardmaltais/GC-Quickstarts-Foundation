@@ -69,7 +69,17 @@ $Shortcut.IconLocation="$scriptPath\ADLicon.ico"
 $Shortcut.Save()
 #disable server manager at login time
 Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask -Verbose 
+#set chrome as default browser
+$regKey = "HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\{0}\UserChoice"
+$regKeyHttp = $regKey -f 'http'
+$regKeyHttps = $regKey -f 'https'
+Set-ItemProperty -Force -PassThru -Verbose $regKeyHttp  -name ProgId ChromeHTML
+Set-ItemProperty -Force -PassThru -Verbose $regKeyHttp  -name Hash k9Da/QqU74c=
+Set-ItemProperty -Force -PassThru -Verbose $regKeyHttps -name ProgId ChromeHTML
+Set-ItemProperty -Force -PassThru -Verbose $regKeyHttps -name Hash /vl+ronxuA4=
+Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Internet Explorer\Main' -Name Check_Associations -Value 'no'
 $temptime = get-date -f yyyy-MM-dd--HH:mm:ss
 "Ending deployment script - $temptime" | out-file $deploylogfile -Append
+
 }
 
